@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const Service = ({service}) => {
     const {id, name, duration, img, travelers, description, money, ratings} = service;
     const navigate = useNavigate();
-    const checkOut = id =>{
-        
+    const navigateCheckOut = id =>{
+        navigate(`/service/${id}`);
     }
     return (
         <div className='col col-12 gy-5 col-md-6 col-lg-4'>
@@ -20,7 +20,7 @@ const Service = ({service}) => {
         <p className="card-text">Trip charge: ${money}</p>
         <p className="card-text">Ratings: {ratings}</p>
         <p className="card-text">About trip: {description.slice(0, 100) + '...'}</p>
-        <Button className="btn btn-warning w-100">Check Out</Button>
+        <Button onClick={() =>navigateCheckOut(id)} className="btn btn-warning w-100">Check Out</Button>
         </div>
         </div>
         </div>
