@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import About from './Pages/About/About';
 import NotFound from './Pages/NotFound/NotFound';
+import Footer from './Shared/Footer/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
