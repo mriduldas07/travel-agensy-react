@@ -20,7 +20,7 @@ const Service = ({service}) => {
         <p className="card-text">Trip charge: ${money}</p>
         <p className="card-text">Ratings: {ratings}</p>
         <p className="card-text">About trip: {description.slice(0, 100) + '...'}</p>
-        <Button onClick={() =>navigateCheckOut(id)} className="btn btn-warning w-100">Check Out</Button>
+        <Button onClick={() =>navigateCheckOut(id)} className="btn btn-warning w-100 mx-auto">Check Out</Button>
         </div>
         </div>
         </div>

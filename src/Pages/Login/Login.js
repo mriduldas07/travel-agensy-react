@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import login from '../../images/login.jpg'
 import './Login.css'
@@ -22,6 +22,7 @@ const Login = () => {
                             <p>New here?<Link to={`/register`}> Create an account</Link></p>
                             <input type="button" value="Login" />
                         </form>
+                        <Button variant="dark" className='w-50'>Google Sign In</Button>
                     </Col>
                 </Row>
             </Container>
