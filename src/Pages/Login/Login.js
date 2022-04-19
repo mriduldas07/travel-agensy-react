@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import login from '../../images/login.jpg'
 
 const Login = () => {
@@ -17,7 +18,7 @@ const Login = () => {
                             <br />
                             <br />
                             <input type="password" name="password" placeholder='Password' required id="" />
-                            <p>New here?<a href="#"> Create an account</a></p>
+                            <p>New here?<Link to={`/register`}> Create an account</Link></p>
                             <input type="button" value="Login" />
                         </form>
                     </Col>
