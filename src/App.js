@@ -9,6 +9,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Shared/Footer/Footer';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import Services from './Pages/Home/Services/Services';
 
 function App() {
   return (

@@ -1,9 +1,18 @@
 import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import login from '../../images/login.jpg'
 
 const Register = () => {
+    const navigate = useNavigate();
+
+    const navigateToLogin = event =>{
+        navigate('/login');
+    }
+    const handleRegister = event =>{
+        event.preventDefault();
+    }
+
     return (
         <div>
             <Container>
@@ -13,7 +22,7 @@ const Register = () => {
                     </Col>
                     <Col lg={5} sm={12}>
                         <h1 className='mt-5 form-title'>Register</h1>
-                        <form className='container mx-auto'>
+                        <form onSubmit={handleRegister} className='container mx-auto'>
                             <input type="email" name="email" placeholder='Your Email' required id="" />
                             <br />
                             <br />
@@ -21,8 +30,8 @@ const Register = () => {
                             <br />
                             <br />
                             <input type="password" name="confirm-password" placeholder='Confirm Password' required id="" />
-                            <p>Already have an account?<Link to={`/login`}>Login</Link></p>
-                            <input type="button" value="Register" />
+                            <p>Already have an account?<Link to={`/login`} className='text-warning text-decoration-none' onClick={navigateToLogin}> Login</Link></p>
+                            <input type="submit" value="Register" />
                         </form>
                         <Button variant="dark" className='w-50'>Google Sign In</Button>
                     </Col>
