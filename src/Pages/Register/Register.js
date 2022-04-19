@@ -12,8 +12,8 @@ const Register = () => {
                         <img className='w-100 mt-5 h-100' src={login} alt="" />
                     </Col>
                     <Col lg={5} sm={12}>
-                        <h1 className='mt-5'>Register</h1>
-                        <form>
+                        <h1 className='mt-5 form-title'>Register</h1>
+                        <form className='container mx-auto'>
                             <input type="email" name="email" placeholder='Your Email' required id="" />
                             <br />
                             <br />

@@ -1,0 +1,22 @@
+form{
+    width: 500px;
+    height: 600pox;
+    margin-top: 35px;
+}
+form input{
+    display: block;
+    width: 350px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px gray;
+}
+form p{
+    margin: 3% auto;
+}
+.form-title{
+    font-size: 35px;
+    color: #2A414F;
+    font-weight: 400;
+    margin-left: 25%;
+}
