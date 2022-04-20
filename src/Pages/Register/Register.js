@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import login from '../../images/login.jpg'
+import SocialLogin from '../Login/SocialLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -13,7 +15,12 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+    const [updateProfile, updating, errorUpdate] = useUpdateProfile(auth);
+
+    if (updating) {
+        return <Loading></Loading>
+    }
 
     const handleEmailBlur = event =>{
         setEmail(event.target.value);
@@ -28,10 +35,7 @@ const Register = () => {
     const navigateToLogin = event =>{
         navigate('/login');
     }
-    if (user) {
-        navigate('/home');
-    }
-    const handleRegister = event =>{
+    const handleRegister = async event =>{
         event.preventDefault();
         if (password !== confirmPassword) {
             setError("Your password did not match");
@@ -41,7 +45,10 @@ const Register = () => {
             setError('Password must be 6 digits');
             return;
         }
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({email: email});
+        navigate('/home');
+
     }
 
     return (
@@ -65,7 +72,7 @@ const Register = () => {
                             <p>Already have an account?<Link to={`/login`} className='text-warning text-decoration-none' onClick={navigateToLogin}> Login</Link></p>
                             <input type="submit" value="Register" />
                         </form>
-                        <Button variant="dark" className='w-50'>Google Sign In</Button>
+                        <SocialLogin></SocialLogin>
                     </Col>
                 </Row>
             </Container>

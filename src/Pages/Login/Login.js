@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import auth from "../../firebase.init";
 import login from '../../images/login.jpg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
+import SocialLogin from './SocialLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -15,10 +19,17 @@ const Login = () => {
         loading,
         error
     ] = useSignInWithEmailAndPassword(auth);
-    
+
+    const [ sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
     const navigate = useNavigate();
     const location = useLocation();
     let from = location?.state?.from?.pathname || "/";
+    
+    
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
 
     const handleEmailBlur = e =>{
         setEmail(e.target.value);
@@ -39,6 +50,15 @@ const Login = () => {
 
     const navigateToRegister = event =>{
         navigate('/register')
+    }
+    const resetPassword = async () =>{
+        if(email){
+            await sendPasswordResetEmail(email);
+            toast("Sent email to reset password");
+        }
+        else{
+            toast("Please input email first");
+        }
     }
 
 
@@ -62,8 +82,10 @@ const Login = () => {
                             }
                             <p>New here?<span className='text-warning' style={{cursor: 'pointer'}} onClick={navigateToRegister}> Create an account</span></p>
                             <input type="submit" value="Login" />
+                            <p>Forget Password?<span className='text-warning' style={{cursor: 'pointer'}} onClick={resetPassword}> Reset Password</span></p>
                         </form>
-                        <Button variant="dark" className='w-50'>Google Sign In</Button>
+                        <SocialLogin></SocialLogin>
+                        <ToastContainer />
                     </Col>
                 </Row>
             </Container>
