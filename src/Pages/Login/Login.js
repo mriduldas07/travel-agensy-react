@@ -3,7 +3,7 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import auth from "../../firebase.init";
 import login from '../../images/login.jpg';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 
 const Login = () => {
@@ -17,6 +17,8 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location?.state?.from?.pathname || "/";
 
     const handleEmailBlur = e =>{
         setEmail(e.target.value);
@@ -32,7 +34,7 @@ const Login = () => {
         
     }
     if (user) {
-        navigate('/home')
+        navigate(from, {replace: true});
     }
 
     const navigateToRegister = event =>{
