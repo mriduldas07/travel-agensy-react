@@ -28,14 +28,17 @@ const Register = () => {
     const navigateToLogin = event =>{
         navigate('/login');
     }
+    if (user) {
+        navigate('/home');
+    }
     const handleRegister = event =>{
         event.preventDefault();
         if (password !== confirmPassword) {
-            setError("incoreect");
+            setError("Your password did not match");
             return;
         }
         if (password.length < 6) {
-            setError('6 digit');
+            setError('Password must be 6 digits');
             return;
         }
         createUserWithEmailAndPassword(email, password);
@@ -58,6 +61,7 @@ const Register = () => {
                             <br />
                             <br />
                             <input onBlur={handleConfirmPasswordBlur} type="password" name="confirm-password" placeholder='Confirm Password' required id="" />
+                            <p style={{color: 'red'}}>{error}</p>
                             <p>Already have an account?<Link to={`/login`} className='text-warning text-decoration-none' onClick={navigateToLogin}> Login</Link></p>
                             <input type="submit" value="Register" />
                         </form>
