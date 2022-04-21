@@ -1,0 +1,10 @@
+.experiences{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    grid-template-rows: repeat(1,600px);
+}
+.experiences img{
+    width: 600px;
+    height: auto;
+}
