@@ -7,3 +7,13 @@
     width: 600px;
     height: auto;
 }
+
+@media only screen and (max-width: 676px) {
+    .experiences{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .experiences img{
+        width: 330px;
+    }
+}
