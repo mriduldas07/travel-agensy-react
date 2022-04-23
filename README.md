@@ -1,6 +1,6 @@
 # Project Name: Travelers
 
-## Live Site: [Live site hosting by firebase](https://assignment-10-efab3.web.app/)
+## Live Site: [Live site hosting by firebase](https://travelers-web.netlify.app)
 
 Description
 ---
@@ -16,6 +16,6 @@ Technology I use
 - React
 - React-Bootstrap
 - React Router
-- Hooks
+- firebase hooks
 - firebase for authentication
 - firebase for hosting

@@ -13,7 +13,8 @@ const Banner = () => {
   
     return (
         <div className='container'>
-          <h2 className='text-center my-3'><span className="text-info">Travelers</span> for Pleaser</h2>
+          <h2 className='text-center my-3'><span className="text-info">Travelers</span></h2>
+          <h5 className='text-center text-success'>For pleaser</h5>
             <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
