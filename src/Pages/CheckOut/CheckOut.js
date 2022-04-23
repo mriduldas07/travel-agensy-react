@@ -20,7 +20,7 @@ const CheckOut = () => {
                             <br />
                             <input style={{width: '500px'}} type="number" name="mobile" placeholder='Mobile Number' required id="" />
                             <input className='mt-4 mx-auto' type="submit" value="Submit your information" />
-                            <h6 className="text-success mt-3 text-center">Thanks for contacting with me.I will send you an email for confirmation...</h6>
+                            <h6 className="text-success mt-3 text-center">Thanks for contacting with me.I will send you an email for confirmation....</h6>
                         </form>
                     </Col>
                 </Row>
