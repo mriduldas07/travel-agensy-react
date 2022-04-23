@@ -1,6 +1,6 @@
 # Project Name: Travelers
 
-## Live Site: [Live site hosting by firebase](https://travelers-web.netlify.app)
+## Live Site: [Live site hosting by Netlify](https://travelers-web.netlify.app)
 
 Description
 ---
