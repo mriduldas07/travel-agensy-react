@@ -5,6 +5,7 @@
 Description
 ---
 - This site made with firebase,react bootstrap, css3.
+<<<<<<< HEAD
 - Here I use many pages
 - In Home page,it contains Banner, services, special pictures..
 - Service page contains a checkout button that goes to checkout pages which is protected   by requiredAuth(that won't permit you if you can't login)
@@ -17,3 +18,5 @@ Technology I use
 - React-Bootstrap
 - React Router
 - Hooks
+=======
+>>>>>>> 9e3621144684d4f62b546dea693268bd19d01536
